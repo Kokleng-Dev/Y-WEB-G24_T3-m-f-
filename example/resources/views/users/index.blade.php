@@ -8,11 +8,22 @@
   </head>
   <body>
     <div class="container mt-5">
-        <a href="{{ url('input') }}" class="btn btn-primary">Input</a>
-        {!! "<a href='www.google.com' target='_blank'>Google</a>" !!}
+        <a href="{{ route('input') }}" class="btn btn-primary">Input</a>
+        
+        {{-- {!! "<a href='www.google.com' target='_blank'>Google</a>" !!} --}}
  
+        <h2>My name is : {{ $name }}</h2>
+        <h2>My Phone is : {{ $phone }}</h2>
 
 
+        <form action="{{ route('user.store') }}" method="POST">
+          @csrf
+          <label for="">Name</label>
+          <input type="text" name="myname" class="form-control">
+          <label for="">Phone</label>
+          <input type="text" name="myphone" class="form-control">
+          <button class="my-3 btn btn-success">Submit</button>
+        </form>
 
 
 
