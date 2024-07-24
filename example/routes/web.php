@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\Backends\HomeController;
+use App\Http\Controllers\Backends\UserController;
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
 
 Route::get('/input', function(){
     return view('input');
@@ -44,16 +45,39 @@ Route::post('/user/store', function(){
 
 
 
-Route::get('detail/{myId}/{myPhone}', function($myId = '',$myPhone= ''){
+// Route::get('detail/{myId}/{myPhone}', function($myId = '',$myPhone= ''){
 
-    echo "hello " . $myId;
-    echo "<br>";
-    echo "my phone is " . $myPhone;
-})->name('detail');
+//     echo "hello " . $myId;
+//     echo "<br>";
+//     echo "my phone is " . $myPhone;
+// })->name('detail');
 
 
 
-Route::get('myInput', [InputController::class, 'myInput'])->name('myInput');
+Route::get('myInput',[InputController::class, 'myInput'])
+->name('myInput');
+
+
+
+// Route::get('/',[HomeController::class,'index'])->name('home');
+// Route::get('/detail',[HomeController::class,'detail'])->name('detail');
+
+// Route::group(['namespace' => 'App\http\Controllers\Backends\\'], function(){
+//     Route::get('/', 'HomeController@index')->name('home');
+//     Route::get('/detail', 'HomeController@detail')->name('detail');
+// });
+// Route::group(['namespace' => 'Frontends\\'], function(){
+//     Route::get('/', 'Backends\HomeController@index')->name('home');
+//     Route::get('/detail', 'Backends\HomeController@detail')->name('detail');
+// });
+
+Route::group(['namespace' => 'Backends\\'], function(){
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/detail', 'HomeController@detail')->name('detail');
+});
+
+
+
 
 
 Route::fallback(function(){
