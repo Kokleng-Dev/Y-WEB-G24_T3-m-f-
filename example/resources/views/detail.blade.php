@@ -1,2 +1,5 @@
+@extends('layouts.master')
 
-<h2>Detail Page</h2>
+@section('content')
+    <h2>Hello</h2>
+@endsection
