@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Request;
+use App\Http\Controllers\InputController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,11 +13,11 @@ Route::get('/input', function(){
 })->name('input');
 
 Route::get('/user', function(){
-    $data = [
-        'name' => '', 
-        'phone' => ''
-    ];
-    return view('users.index', $data);
+   
+    $name = '';
+    $phone = '';
+
+    return view('users.index', compact('name','phone'));
 })->name('user');
 
 Route::post('/user/store', function(){
@@ -49,6 +50,10 @@ Route::get('detail/{myId}/{myPhone}', function($myId = '',$myPhone= ''){
     echo "<br>";
     echo "my phone is " . $myPhone;
 })->name('detail');
+
+
+
+Route::get('myInput', [InputController::class, 'myInput'])->name('myInput');
 
 
 Route::fallback(function(){
