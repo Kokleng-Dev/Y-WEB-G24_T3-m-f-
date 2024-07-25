@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts_v2.master')
 @push('title')
     Detail Page
 @endpush

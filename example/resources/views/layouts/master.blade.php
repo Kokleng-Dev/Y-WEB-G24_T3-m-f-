@@ -28,7 +28,6 @@
     @yield('css')
     @stack('css')
 </head> 
-
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <div class="app-wrapper"> 
         @include('layouts.nav')
