@@ -1,0 +1,1 @@
+<link href="{{ asset('adminkit/static/css/app.css') }}" rel="stylesheet">

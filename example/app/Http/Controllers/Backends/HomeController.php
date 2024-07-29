@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
-        return view('home');
+    public function index(Request $r){
+        $data = [
+            'name' => 'Rithy',
+            'isChild' => true,
+            'template' => $r->v ? $r->v : 'v2'
+        ];
+
+
+        return view('home', $data);
     }
 
-    public function detail(){
-
-        return view('detail');
+    public function detail(Request $r){
+        $data = [
+            'template' => $r->v ? $r->v : 'v2'
+        ];
+        return view('detail', $data);
     }
 }
