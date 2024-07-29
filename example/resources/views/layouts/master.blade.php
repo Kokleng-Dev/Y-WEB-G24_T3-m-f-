@@ -32,7 +32,7 @@
     @yield('css')
     @stack('css')
 </head> 
-<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<body class="{{ $template == 'v1' ? 'layout-fixed sidebar-expand-lg bg-body-tertiary' : '' }}">
         @if($template == 'v1')
             <div class="app-wrapper"> 
                 @include('layouts.nav')
