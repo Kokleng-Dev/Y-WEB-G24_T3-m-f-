@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     public function index(Request $r){
 
+
         $data = [
             'name' => 'Rithy',
             'isChild' => true,
